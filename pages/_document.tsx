@@ -5,15 +5,6 @@ import Document, {
   Main,
   NextScript,
 } from "next/document";
-import { FC } from "react";
-
-const IPhoneContainer: FC = ({ children }) => (
-  <div className="h-screen w-screen bg-gray-300 flex justify-center items-center">
-    <div className="bg-white" style={{ height: 812, width: 375 }}>
-      {children}
-    </div>
-  </div>
-);
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -25,11 +16,18 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+          rel="stylesheet"
+        />
+
         <Head />
         <body>
-          <IPhoneContainer>
-            <Main />
-          </IPhoneContainer>
+          <Main />
           <NextScript />
         </body>
       </Html>
