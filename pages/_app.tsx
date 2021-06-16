@@ -1,5 +1,7 @@
 import { FC } from "react";
 
+import "@fontsource/poppins";
+import "@fontsource/roboto";
 import "tailwindcss/tailwind.css";
 
 const IPhoneContainer: FC = ({ children }) => (

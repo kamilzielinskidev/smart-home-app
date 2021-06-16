@@ -15,17 +15,13 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-          rel="stylesheet"
-        />
-
+      <Html lang="en">
         <Head />
+        <title>Smart Home App</title>
+        <meta
+          name="description"
+          content="Smart Home App client implementation"
+        />
         <body>
           <Main />
           <NextScript />

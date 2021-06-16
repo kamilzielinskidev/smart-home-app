@@ -77,13 +77,41 @@ const Home: FC = () => {
         value={0}
       >
         <BottomNavigationAction
+          sx={{
+            ".MuiBottomNavigationAction-label": {
+              fontSize: "0px!important",
+            },
+          }}
+          label="home"
           className="rounded-bl-3xl rounded-tl-xl"
           icon={<HomeIcon fontSize="large" />}
         />
-        <BottomNavigationAction icon={<GroupIcon fontSize="large" />} />
-        <BottomNavigationAction icon={<FlashOnIcon fontSize="large" />} />
+        <BottomNavigationAction
+          sx={{
+            ".MuiBottomNavigationAction-label": {
+              fontSize: "0px!important",
+            },
+          }}
+          label="group"
+          icon={<GroupIcon fontSize="large" />}
+        />
+        <BottomNavigationAction
+          sx={{
+            ".MuiBottomNavigationAction-label": {
+              fontSize: "0px!important",
+            },
+          }}
+          label="flash"
+          icon={<FlashOnIcon fontSize="large" />}
+        />
 
         <BottomNavigationAction
+          sx={{
+            ".MuiBottomNavigationAction-label": {
+              fontSize: "0px!important",
+            },
+          }}
+          label="person"
           className="rounded-br-3xl rounded-tr-xl"
           icon={<PersonIcon fontSize="large" />}
         />
