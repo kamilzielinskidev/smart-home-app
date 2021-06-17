@@ -7,7 +7,7 @@ import "tailwindcss/tailwind.css";
 const IPhoneContainer: FC = ({ children }) => (
   <div className="h-screen w-screen bg-gray-300 flex justify-center items-center">
     <div
-      className="bg-gray-100 rounded-3xl"
+      className="bg-gray-100 rounded-3xl overflow-hidden"
       style={{ height: 812, width: 375 }}
     >
       {children}
