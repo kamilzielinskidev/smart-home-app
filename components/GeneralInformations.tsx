@@ -1,8 +1,8 @@
 import BatteryCharging90Rounded from "@material-ui/icons/BatteryCharging90Rounded";
 import HighlightRounded from "@material-ui/icons/HighlightRounded";
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 
-type ElectricUsage = { label: string; amount: string; icon: React.ReactNode };
+type ElectricUsage = { label: string; amount: string; icon: ReactNode };
 type ElectricUsages = ElectricUsage[];
 
 const electricUsages: ElectricUsages = [
@@ -24,7 +24,7 @@ const GeneralInformations: FC = () => (
     style={{ backgroundColor: "#8EAEFF18", color: "#6178B2" }}
   >
     {electricUsages.map(({ label, amount, icon }) => (
-      <div className="flex">
+      <div key={label} className="flex">
         <div className="flex flex-col justify-center">{icon}</div>
         <div className="ml-2">
           <div className="text-lg">{amount}</div>

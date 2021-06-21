@@ -1,49 +1,89 @@
+import { SvgIconProps } from "@material-ui/core";
 import CardMaterial from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import AcUnitOutlined from "@material-ui/icons/AcUnitOutlined";
 import CellWifiOutlined from "@material-ui/icons/CellWifiOutlined";
 import LiveTvOutlined from "@material-ui/icons/LiveTvOutlined";
 import WbSunnyOutlined from "@material-ui/icons/WbSunnyOutlined";
-import React, { FC, ReactNode, useState } from "react";
+import { useRouter } from "next/dist/client/router";
+import React, { FC, useState } from "react";
 
 import Switch from "./Switch";
 
-type CardT = { label: string; icon: ReactNode };
+type CardT = {
+  defaultValue: boolean;
+  icon: FC<SvgIconProps>;
+  isAvailable: boolean;
+  label: string;
+  link?: string;
+};
 type CardsT = CardT[];
 
 const cards: CardsT = [
   {
+    defaultValue: false,
+    icon: WbSunnyOutlined,
+    isAvailable: false,
     label: "Light",
-    icon: <WbSunnyOutlined sx={{ fontSize: "2rem", color: "#769CFF" }} />,
   },
   {
+    defaultValue: false,
+    icon: LiveTvOutlined,
+    isAvailable: false,
     label: "TV",
-    icon: <LiveTvOutlined sx={{ fontSize: "2rem", color: "#769CFF" }} />,
   },
   {
+    defaultValue: true,
+    icon: AcUnitOutlined,
+    isAvailable: true,
     label: "Air",
-    icon: <AcUnitOutlined sx={{ fontSize: "2rem", color: "#769CFF" }} />,
+    link: "/air",
   },
   {
+    defaultValue: false,
+    icon: CellWifiOutlined,
+    isAvailable: false,
     label: "Wi-Fi",
-    icon: <CellWifiOutlined sx={{ fontSize: "2rem", color: "#769CFF" }} />,
   },
 ];
 
-const Card: FC<CardT> = ({ label, icon }) => {
-  const [value, setValue] = useState(false);
+const Card: FC<CardT> = ({
+  label,
+  icon: Icon,
+  isAvailable,
+  link,
+  defaultValue,
+}) => {
+  const [value, setValue] = useState(defaultValue);
+  const router = useRouter();
+
   return (
-    <CardMaterial className="shadow-sm rounded-xl">
-      <CardContent>
+    <CardMaterial
+      className={
+        isAvailable
+          ? `shadow-sm rounded-xl cursor-pointer hover:bg-gray-100 active:bg-gray-200`
+          : "shadow-sm rounded-xl"
+      }
+      style={{ border: isAvailable ? "2px solid #769CFF" : "none" }}
+      onClick={() => isAvailable && link && router.push(link)}
+    >
+      <CardContent sx={{ color: isAvailable ? "#000" : "#9ea5b0" }}>
         <div className="flex justify-between">
           <div className="text-xl">{label}</div>
-          {icon}
+          <Icon
+            sx={{
+              fontSize: "2rem",
+              color: isAvailable ? "#769CFF" : "#9ea5b0",
+            }}
+          />
         </div>
         <div className="flex justify-between mt-8">
           <div className="text-base">{value ? "on" : "off"}</div>
           <Switch
             inputProps={{ "aria-label": label }}
-            defaultChecked
+            checked={value}
+            onClick={(e) => e.stopPropagation()}
+            disabled={!isAvailable}
             onChange={(event) => setValue(event.target.checked)}
           />
         </div>
