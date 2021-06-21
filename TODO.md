@@ -1,2 +1,1 @@
 - bottom navigation on mobiles gets out of a screen
-- bottom navigation clicks are not implemented

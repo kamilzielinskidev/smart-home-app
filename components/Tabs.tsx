@@ -44,7 +44,7 @@ const Tabs: FC = () => {
       }}
     >
       {tabs.map((props) => (
-        <Tab className="text-gray-400" {...props} />
+        <Tab key={props.label} className="text-gray-400" {...props} />
       ))}
     </DottedTabs>
   );

@@ -33,7 +33,7 @@ const BottomNavigation: FC = () => {
       onChange={(_, v) => setValue(v)}
     >
       {actions.map((props) => (
-        <BottomNavigationAction {...props} />
+        <BottomNavigationAction key={props.label} {...props} />
       ))}
     </BottomNavigationMaterial>
   );

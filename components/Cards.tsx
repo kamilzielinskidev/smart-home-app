@@ -55,7 +55,7 @@ const Card: FC<CardT> = ({ label, icon }) => {
 const Cards: FC = () => (
   <div className="grid grid-cols-2 gap-4">
     {cards.map((props) => (
-      <Card {...props} />
+      <Card key={props.label} {...props} />
     ))}
   </div>
 );
