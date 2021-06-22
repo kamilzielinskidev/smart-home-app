@@ -1,26 +1,27 @@
-import { FC } from "react";
+import { Container } from "@material-ui/core";
+import { useEvent, useMount } from "react-use";
+
+import setVhVariable from "../helpers/setVhVariable";
 
 import "@fontsource/poppins";
 import "@fontsource/roboto";
 import "tailwindcss/tailwind.css";
 
-const IPhoneContainer: FC = ({ children }) => (
-  <div className="h-screen w-screen bg-gray-300 flex justify-center items-center">
-    <div
-      className="bg-gray-100 rounded-3xl overflow-hidden"
-      style={{ height: 812, width: 375 }}
-    >
-      {children}
-    </div>
-  </div>
-);
-
 import type { AppProps } from "next/app";
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
+  useMount(setVhVariable);
+  useEvent("resize", setVhVariable);
   return (
-    <IPhoneContainer>
-      <Component {...pageProps} />
-    </IPhoneContainer>
+    <Container maxWidth="xs" sx={{ padding: 0 }}>
+      <div
+        style={{
+          height: "calc(var(--vh, 1vh) * 100)",
+        }}
+      >
+        <Component {...pageProps} />
+      </div>
+    </Container>
   );
-}
+};
+
 export default MyApp;

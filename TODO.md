@@ -1,1 +1,0 @@
-- bottom navigation on mobiles gets out of a screen

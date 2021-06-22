@@ -58,37 +58,40 @@ const Card: FC<CardT> = ({
   const router = useRouter();
 
   return (
-    <CardMaterial
-      className={
-        isAvailable
-          ? `shadow-sm rounded-xl cursor-pointer hover:bg-gray-100 active:bg-gray-200`
-          : "shadow-sm rounded-xl"
-      }
-      style={{ border: isAvailable ? "2px solid #769CFF" : "none" }}
-      onClick={() => isAvailable && link && router.push(link)}
-    >
-      <CardContent sx={{ color: isAvailable ? "#000" : "#9ea5b0" }}>
-        <div className="flex justify-between">
-          <div className="text-xl">{label}</div>
-          <Icon
-            sx={{
-              fontSize: "2rem",
-              color: isAvailable ? "#769CFF" : "#9ea5b0",
-            }}
-          />
-        </div>
-        <div className="flex justify-between mt-8">
-          <div className="text-base">{value ? "on" : "off"}</div>
-          <Switch
-            inputProps={{ "aria-label": label }}
-            checked={value}
-            onClick={(e) => e.stopPropagation()}
-            disabled={!isAvailable}
-            onChange={(event) => setValue(event.target.checked)}
-          />
-        </div>
-      </CardContent>
-    </CardMaterial>
+    <div style={{ position: "relative" }}>
+      <CardMaterial
+        className={
+          isAvailable
+            ? `shadow-sm rounded-xl cursor-pointer hover:bg-gray-100 active:bg-gray-200`
+            : "shadow-sm rounded-xl"
+        }
+        style={{ border: isAvailable ? "2px solid #769CFF" : "none" }}
+        onClick={() => isAvailable && link && router.push(link)}
+      >
+        <CardContent sx={{ color: isAvailable ? "#000" : "#9ea5b0" }}>
+          <div className="flex justify-between">
+            <div className="text-xl">{label}</div>
+            <Icon
+              sx={{
+                fontSize: "2rem",
+                color: isAvailable ? "#769CFF" : "#9ea5b0",
+              }}
+            />
+          </div>
+          <div className="flex justify-between mt-8">
+            <div className="text-base">{value ? "on" : "off"}</div>
+          </div>
+        </CardContent>
+      </CardMaterial>
+      <Switch
+        sx={{ position: "absolute", bottom: 24, right: 20 }}
+        inputProps={{ "aria-label": label }}
+        checked={value}
+        onClick={(e) => e.stopPropagation()}
+        disabled={!isAvailable}
+        onChange={(event) => setValue(event.target.checked)}
+      />
+    </div>
   );
 };
 

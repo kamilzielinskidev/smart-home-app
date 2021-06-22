@@ -13,7 +13,7 @@ const Home: FC = () => {
       <div className="flex-shrink-0">
         <HeaderCard />
       </div>
-      <div className="flex-grow overflow-scroll">
+      <div className="flex-grow flex-shrink overflow-scroll">
         <Tabs />
         <div className="flex justify-between mx-5 mt-3">
           <div>Devices</div> <Button disableRipple>+Add devices</Button>
