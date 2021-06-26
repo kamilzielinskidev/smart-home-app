@@ -78,8 +78,8 @@ const Card: FC<CardT> = ({
               }}
             />
           </div>
-          <div className="flex justify-between mt-8">
-            <div className="text-base">{value ? "on" : "off"}</div>
+          <div className="flex justify-between mt-8 text-base">
+            {value ? "on" : "off"}
           </div>
         </CardContent>
       </CardMaterial>

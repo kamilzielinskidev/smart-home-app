@@ -1,8 +1,19 @@
 import { Air, AirDevice } from "./devices/air";
-import { Light } from "./devices/light";
+import { DefaultDevice } from "./devices/common";
+import { Light, LightDevice } from "./devices/light";
 import { TV, TVDevice } from "./devices/tv";
-import { Wifi } from "./devices/wifi";
+import { Wifi, WifiDevice } from "./devices/wifi";
 
-export type DeviceType = Light | TV | Air | Wifi;
+type DeviceType = Air | Light | TV | Wifi;
+type SpecificDevices = AirDevice | LightDevice | TVDevice | WifiDevice;
 
-export type Devices = Record<Air, AirDevice> & Record<TV, TVDevice>;
+type Device<
+  DeviceName extends DeviceType,
+  SpecificDevice extends SpecificDevices
+> = Record<DeviceName, DefaultDevice & SpecificDevice>;
+
+export type Devices =
+  | Device<Air, AirDevice>
+  | Device<Light, LightDevice>
+  | Device<TV, TVDevice>
+  | Device<Wifi, WifiDevice>;

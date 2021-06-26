@@ -1,3 +1,6 @@
-type Room = "Bath" | "Living Room" | "Bedroom" | "Kitchen";
+export type Bath = "Bath";
+export type LivingRoom = "Living Room";
+export type Bedroom = "Bedroom";
+export type Kitchen = "Kitchen";
 
-export default Room;
+export type Room = Bath | LivingRoom | Bedroom | Kitchen;

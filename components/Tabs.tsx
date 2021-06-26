@@ -1,7 +1,10 @@
 import { styled } from "@material-ui/core";
 import Tab from "@material-ui/core/Tab";
 import TabsMaterial from "@material-ui/core/Tabs";
-import { FC, useState } from "react";
+import { FC } from "react";
+
+import usePickedRoomState from "../stores/pickedRoomState";
+import { Room } from "../types/room";
 
 const DottedTabs = styled(TabsMaterial)({
   ".MuiTabs-indicator": {
@@ -19,7 +22,7 @@ const DottedTabs = styled(TabsMaterial)({
   },
 });
 
-type TabT = { label: string };
+type TabT = { label: Room };
 type TabsT = TabT[];
 
 const tabs: TabsT = [
@@ -30,12 +33,13 @@ const tabs: TabsT = [
 ];
 
 const Tabs: FC = () => {
-  const [value, setValue] = useState(0);
+  const roomsMap: Room[] = ["Bath", "Bedroom", "Kitchen", "Living Room"];
+  const { room, changeRoom } = usePickedRoomState();
 
   return (
     <DottedTabs
-      value={value}
-      onChange={(_, v) => setValue(v)}
+      value={roomsMap.findIndex((v) => v === room)}
+      onChange={(_, v) => changeRoom(roomsMap[v])}
       aria-label="basic tabs example"
       variant="scrollable"
       scrollButtons="auto"
@@ -44,7 +48,7 @@ const Tabs: FC = () => {
       }}
     >
       {tabs.map((props) => (
-        <Tab key={props.label} className="text-gray-400" {...props} />
+        <Tab key={props.label} {...props} />
       ))}
     </DottedTabs>
   );

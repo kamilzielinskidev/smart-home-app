@@ -1,5 +1,3 @@
-import { IsOn } from "./common";
-
 export type TV = "TV";
 
 type Genres = "Horror" | "Drama" | "Comedy" | "Music";
@@ -11,7 +9,7 @@ type NowPlaying = {
   duration: number;
 };
 
-export type TVDevice = IsOn & {
+export type TVDevice = {
   sound: number;
   genres: Genres;
   nowPlaying: NowPlaying;
