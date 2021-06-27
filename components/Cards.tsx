@@ -62,8 +62,8 @@ const Card: FC<CardT> = ({
       <CardMaterial
         className={
           isAvailable
-            ? `shadow-sm rounded-xl cursor-pointer hover:bg-gray-100 active:bg-gray-200`
-            : "shadow-sm rounded-xl"
+            ? `shadow rounded-xl cursor-pointer hover:bg-gray-100 active:bg-gray-200`
+            : "shadow rounded-xl"
         }
         style={{ border: isAvailable ? "2px solid #769CFF" : "none" }}
         onClick={() => isAvailable && link && router.push(link)}

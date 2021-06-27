@@ -16,13 +16,15 @@ const Home: FC = () => {
       <div className="flex-grow flex-shrink overflow-scroll">
         <Tabs />
         <div className="flex justify-between mx-5 mt-3">
-          <div>Devices</div> <Button disableRipple>+Add devices</Button>
+          <div className="font-semibold text-xl">Devices</div>
+          <Button disableRipple>+Add devices</Button>
         </div>
         <div className="px-5 mt-2">
           <Cards />
         </div>
         <div className="flex justify-between mx-5 mt-5">
-          <div>General information</div> <Button disableRipple>See all</Button>
+          <div className="font-semibold text-xl">General information</div>{" "}
+          <Button disableRipple>See all</Button>
         </div>
         <GeneralInformations />
       </div>

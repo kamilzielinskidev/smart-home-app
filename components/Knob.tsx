@@ -1,4 +1,4 @@
-import IconButton, { IconButtonProps } from "@material-ui/core/IconButton";
+import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
 import Add from "@material-ui/icons/Add";
 import Remove from "@material-ui/icons/Remove";
 import { FC, useEffect, useRef, useState } from "react";
@@ -58,12 +58,11 @@ const KnobWrapper: FC<KnobWrapperT> = ({
   );
 };
 
-const KnobButton: FC<IconButtonProps> = (props) => (
-  <IconButton
-    className="rounded-lg"
-    sx={{ backgroundColor: "#F3F6FF" }}
+const KnobButton: FC<ButtonBaseProps> = (props) => (
+  <ButtonBase
+    className="rounded-xl p-2"
+    sx={{ backgroundColor: "#8EAEFF18" }}
     aria-label="increase temperature"
-    color="primary"
     {...props}
   />
 );
@@ -76,10 +75,10 @@ type KnobBtnsT = {
 const KnobBtns: FC<KnobBtnsT> = ({ onIncrease, onDecrease }) => (
   <div className="flex justify-between mx-5">
     <KnobButton onClick={onIncrease}>
-      <Add />
+      <Add sx={{ fontSize: "1.5rem" }} />
     </KnobButton>
     <KnobButton onClick={onDecrease}>
-      <Remove />
+      <Remove sx={{ fontSize: "1.5rem" }} />
     </KnobButton>
   </div>
 );

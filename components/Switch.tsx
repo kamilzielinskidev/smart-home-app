@@ -13,7 +13,7 @@ export default styled((props: SwitchProps) => (
     transitionDuration: "300ms",
     "&.Mui-checked": {
       transform: "translateX(16px)",
-      color: "#fff",
+      color: "#FFF",
       "& + .MuiSwitch-track": {
         backgroundColor: "#769CFF",
         opacity: 1,
