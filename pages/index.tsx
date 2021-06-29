@@ -23,10 +23,12 @@ const Home: FC = () => {
           <Cards />
         </div>
         <div className="flex justify-between mx-5 mt-5">
-          <div className="font-semibold text-xl">General information</div>{" "}
+          <div className="font-semibold text-xl">General information</div>
           <Button disableRipple>See all</Button>
         </div>
-        <GeneralInformations />
+        <div className="mx-5 mb-5">
+          <GeneralInformations />
+        </div>
       </div>
       <div className="flex-shrink-0">
         <BottomNavigation />

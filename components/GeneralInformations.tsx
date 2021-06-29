@@ -20,7 +20,7 @@ const electricUsages: ElectricUsages = [
 
 const GeneralInformations: FC = () => (
   <div
-    className="flex justify-between rounded-xl mx-5 px-2 p-5"
+    className="flex justify-between rounded-xl px-2 p-5"
     style={{ backgroundColor: "#8EAEFF18", color: "#6178B2" }}
   >
     {electricUsages.map(({ label, amount, icon }) => (

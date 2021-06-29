@@ -27,7 +27,7 @@ const BottomNavigation: FC = () => {
   const [value, setValue] = useState(0);
   return (
     <BottomNavigationMaterial
-      className="h-20 rounded-t-xl overflow-hidden"
+      className="h-16 rounded-t-xl overflow-hidden"
       showLabels
       value={value}
       onChange={(_, v) => setValue(v)}

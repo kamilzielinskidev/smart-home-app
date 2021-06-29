@@ -27,10 +27,11 @@ const cards: CardsT = [
     label: "Light",
   },
   {
-    defaultValue: false,
+    defaultValue: true,
     icon: LiveTvOutlined,
-    isAvailable: false,
+    isAvailable: true,
     label: "TV",
+    link: "/tv",
   },
   {
     defaultValue: true,
