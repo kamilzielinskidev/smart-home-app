@@ -4,6 +4,7 @@ import { FC, useState } from "react";
 
 import GenreBtn from "../components/GenreBtn";
 import LinearProgress from "../components/LinearProgress";
+import RemoteControl from "../components/RemoteControl";
 import Slider from "../components/Slider";
 import Switch from "../components/Switch";
 import Tabs from "../components/Tabs";
@@ -30,6 +31,9 @@ const TV: FC = () => {
             checked={value}
             onChange={(event) => setValue(event.target.checked)}
           />
+        </div>
+        <div className="mt-5 mx-5 flex justify-center">
+          <RemoteControl />
         </div>
         <div className="mt-5">
           <div className="mx-5 font-semibold text-xl">Sound</div>
