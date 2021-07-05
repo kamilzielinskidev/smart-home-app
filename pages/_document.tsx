@@ -18,9 +18,18 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head />
         <title>Smart Home App</title>
+        <meta property="og:title" content="Smart Home App" />
+        <meta
+          property="og:image"
+          content="https://smart-home-app.vercel.app/metaImage.png"
+        />
+        <meta
+          property="og:description"
+          content="Smart Home App for managing your smart home devices."
+        />
         <meta
           name="description"
-          content="Smart Home App client implementation"
+          content="Smart Home App for managing your smart home devices."
         />
         <body>
           <Main />
